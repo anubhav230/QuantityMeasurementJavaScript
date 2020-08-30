@@ -59,9 +59,15 @@ describe('Quantity Measurement for lenght', () => {
         assert.notEqual(inchVlaue, yardVlaue);
     });
 
-    it('Given 1 yard and 36 inch should return not equal', () => {
+    it('Given 1 yard and 36 inch should return equal', () => {
         let inchVlaue = lenght.inch(36);
         let yardVlaue = lenght.yard(1);
         assert.equal(inchVlaue, yardVlaue);
+    });
+
+    it('Given 2 inch and 5 centimeter should return equal', () => {
+        let inchVlaue = lenght.inch(2);
+        let centimeterVlaue = lenght.centimeter(5);
+        assert.equal(inchVlaue, centimeterVlaue);
     });
 });
