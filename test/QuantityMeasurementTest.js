@@ -20,4 +20,19 @@ describe('Quantity Measurement for lenght', () => {
         let feet2 = lenght.inch(12.0);
         assert.equal(feet1, feet2);
     });
+
+    it('Given feet value as null should return false', () => {
+        let feet1 = lenght.feet(null);
+        assert.isFalse(feet1);
+    });
+
+    it('Given inch value as null should return false', () => {
+        let inch = lenght.inch(null);
+        assert.isFalse(inch);
+    });
+
+    it('Given centimeter value as null should return false', () => {
+        let centimeter = lenght.centimeter(null);
+        assert.isFalse(centimeter);
+    });
 });
