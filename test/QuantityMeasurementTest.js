@@ -73,22 +73,22 @@ describe('Quantity Measurement for lenght', () => {
         assert.equal(inchVlaue, centimeterVlaue);
     });
 
-    it('Given 2 inch and 2 inch when added should return correct result', () => {
+    it('Given 2 inch and 2 inch when added should return expected result', () => {
         let inchVlaue = lenght.Addlength(lenght.inch(2), lenght.inch(2));
         assert.equal(inchVlaue, 4);
     });
 
-    it('Given 1 feet and 2 inch when added should return correct result', () => {
+    it('Given 1 feet and 2 inch when added should return expected result', () => {
         let result = lenght.Addlength(lenght.feet(1), lenght.inch(2));
         assert.equal(result, 14);
     });
 
-    it('Given 1 feet and 1 feet when added should return correct result', () => {
+    it('Given 1 feet and 1 feet when added should return expected result', () => {
         let result = lenght.Addlength(lenght.feet(1), lenght.feet(1));
         assert.equal(result, 24);
     });
 
-    it('Given 1 inch and 2.5 centimeter when added should return correct result', () => {
+    it('Given 1 inch and 2.5 centimeter when added should return expected result', () => {
         let result = lenght.Addlength(lenght.inch(2), lenght.centimeter(2.5));
         assert.equal(result, 3);
     });
@@ -106,4 +106,30 @@ describe('Quantity Measurement for vilune', () => {
         let result2 = volume.milliliter(1000);
         assert.equal(result1, result2)
     });
+
+    it('Given gallon value as null should return false', () => {
+        let result1 = volume.gallon(null);
+        assert.isFalse(result1)
+    });
+
+    it('Given liter value as null should return false', () => {
+        let result1 = volume.liter(null);
+        assert.isFalse(result1)
+    });
+
+    it('Given milliliter value as null should return false', () => {
+        let result1 = volume.milliliter(null);
+        assert.isFalse(result1)
+    });
+
+    it('Given 1 gallon and 3.78 liter when compared should return expected result ', () => {
+        let result = volume.AddVolume(volume.gallon(1), volume.liter(3.78))
+        assert.equal(result, 7.56)
+    });
+
+    it('Given 1 liter and 1000 milliliter when compared should return expected result ', () => {
+        let result = volume.AddVolume(volume.liter(1), volume.milliliter(1000))
+        assert.equal(result, 2)
+    });
+    
 });
