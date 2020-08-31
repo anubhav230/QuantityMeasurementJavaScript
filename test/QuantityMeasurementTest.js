@@ -70,4 +70,24 @@ describe('Quantity Measurement for lenght', () => {
         let centimeterVlaue = lenght.centimeter(5);
         assert.equal(inchVlaue, centimeterVlaue);
     });
+
+    it('Given 2 inch and 2 inch when added should return correct result', () => {
+        let inchVlaue = lenght.Addlength(lenght.inch(2), lenght.inch(2));
+        assert.equal(inchVlaue, 4);
+    });
+
+    it('Given 1 feet and 2 inch when added should return correct result', () => {
+        let result = lenght.Addlength(lenght.feet(1), lenght.inch(2));
+        assert.equal(result, 14);
+    });
+
+    it('Given 1 feet and 1 feet when added should return correct result', () => {
+        let result = lenght.Addlength(lenght.feet(1), lenght.feet(1));
+        assert.equal(result, 24);
+    });
+
+    it('Given 1 inch and 2.5 centimeter when added should return correct result', () => {
+        let result = lenght.Addlength(lenght.inch(2), lenght.centimeter(2.5));
+        assert.equal(result, 3);
+    });
 });
