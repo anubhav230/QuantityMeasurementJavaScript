@@ -1,4 +1,4 @@
-class QuantityMeasurement{
+class length{
     feet(value){
        if(value == null)
        return false;
@@ -28,4 +28,4 @@ class QuantityMeasurement{
     }
 }
 
-module.exports = QuantityMeasurement;
+module.exports = length;

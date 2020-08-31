@@ -1,6 +1,8 @@
 const assert = require('chai').assert;
-const QuantityMeasurement = require('../src/QuantityMeasurement');
-const lenght = new QuantityMeasurement();
+const lengths = require('../src/Length');
+const volumes = require('../src/Volume');
+const lenght = new lengths();
+const volume = new volumes();
 
 describe('Quantity Measurement for lenght', () => {
     it('Given same quantity of feet should return equal', () => {
@@ -89,5 +91,19 @@ describe('Quantity Measurement for lenght', () => {
     it('Given 1 inch and 2.5 centimeter when added should return correct result', () => {
         let result = lenght.Addlength(lenght.inch(2), lenght.centimeter(2.5));
         assert.equal(result, 3);
+    });
+});    
+
+describe('Quantity Measurement for vilune', () => {
+    it('Given 1 gallon and 3.78 liters when compared should return equal result ', () => {
+        let result1 = volume.gallon(1);
+        let result2 = volume.liter(3.78);
+        assert.equal(result1, result2)
+    });
+
+    it('Given 1 liter and 1000 milliliter when compared should return equal result ', () => {
+        let result1 = volume.liter(1);
+        let result2 = volume.milliliter(1000);
+        assert.equal(result1, result2)
     });
 });
