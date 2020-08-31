@@ -1,8 +1,10 @@
 const assert = require('chai').assert;
 const lengths = require('../src/Length');
 const volumes = require('../src/Volume');
+const weights = require('../src/Weight');
 const lenght = new lengths();
 const volume = new volumes();
+const weight = new weights();
 
 describe('Quantity Measurement for lenght', () => {
     it('Given same quantity of feet should return equal', () => {
@@ -94,7 +96,7 @@ describe('Quantity Measurement for lenght', () => {
     });
 });    
 
-describe('Quantity Measurement for vilune', () => {
+describe('Quantity Measurement for volume', () => {
     it('Given 1 gallon and 3.78 liters when compared should return equal result ', () => {
         let result1 = volume.gallon(1);
         let result2 = volume.liter(3.78);
@@ -122,14 +124,42 @@ describe('Quantity Measurement for vilune', () => {
         assert.isFalse(result1)
     });
 
-    it('Given 1 gallon and 3.78 liter when compared should return expected result ', () => {
+    it('Given 1 gallon and 3.78 liter when added should return expected result ', () => {
         let result = volume.AddVolume(volume.gallon(1), volume.liter(3.78))
         assert.equal(result, 7.56)
     });
 
-    it('Given 1 liter and 1000 milliliter when compared should return expected result ', () => {
+    it('Given 1 liter and 1000 milliliter when added should return expected result ', () => {
         let result = volume.AddVolume(volume.liter(1), volume.milliliter(1000))
         assert.equal(result, 2)
+    }); 
+});
+
+describe('Quantity Measurement for weights',() => {
+    it('Given tonne value as null should return false', () => {
+        let result1 = weight.tonne(null);
+        assert.isFalse(result1)
+    });
+
+    it('Given kilogram value akilograms null should return false', () => {
+        let result1 = weight.kilogram(null);
+        assert.isFalse(result1)
+    });
+
+    it('Given grams value as null should return false', () => {
+        let result1 = weight.grams(null);
+        assert.isFalse(result1)
+    });
+
+    it('Given 1 kilogram and 1000 gram when compared should return equal result ', () => {
+        let result1 = weight.kilogram(1);
+        let result2 =  weight.grams(1000);
+        assert.equal(result1, result2)
     });
     
+    it('Given 1 tonne and 1000 kilogram when compared should return equal result ', () => {
+        let result1 = weight.tonne(1);
+        let result2 =  weight.kilogram(1000);
+        assert.equal(result1, result2)
+    });
 });
