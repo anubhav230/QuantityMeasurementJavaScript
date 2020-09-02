@@ -1,7 +1,13 @@
 const assert = require('chai').assert;
 const volumes = require('../src/Volume');
-const volume = new volumes();
+
 describe('Quantity Measurement for volume', () => {
+
+    var volume;
+    before(function () {
+        volume = new volumes();
+    });
+
     it('Given 1 gallon and 3.78 liters when compared should return equal result ', () => {
         assert.equal(volume.gallonConverter(1), volume.literConverter(3.78))
     });
@@ -10,9 +16,13 @@ describe('Quantity Measurement for volume', () => {
         assert.equal(volume.literConverter(1), volume.milliliterConverter(1000))
     });
 
-    // passing null and check result
+    // passing null number and check result
     it('Given gallon value as null should return false', () => {
         assert.isFalse(volume.gallonConverter(null))
+    });
+
+    it('Given gallon value as number should return number', () => {
+        assert.isNumber(volume.gallonConverter(1))
     });
 
     it('Given liter value as null should return false', () => {

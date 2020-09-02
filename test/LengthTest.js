@@ -1,9 +1,14 @@
 const assert = require('chai').assert;
 const lengths = require('../src/Length');
-const lenght = new lengths();
 
 // Test cases for length
 describe('Quantity Measurement for lenght', () => {
+
+    var lenght;
+    before(function () {
+        lenght = new lengths();
+    });
+
     it('Given same quantity of feet should return equal', () => {
         assert.equal(lenght.feetConverter(0.0), lenght.feetConverter(0.0));
     });

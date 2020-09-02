@@ -3,14 +3,14 @@ class Temperature {
      * function for returning fahrenheit result
      * @param {*} fahrenheit 
      */
-    Fahrenheit = (fahrenheit) => {
+    fahrenheit = (fahrenheit) => {
         return fahrenheit;
     }
     /**
      * function for converting celsius in to fahrenheit
      * @param {*} celsius 
      */
-    Celsius = (celsius) => {
+    celsius = (celsius) => {
         return (celsius * 9 / 5) + 32;
     }
 }
